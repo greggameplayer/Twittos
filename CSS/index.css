@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+
+header {
+	background: linear-gradient(90deg, lightblue, blue);
+    box-shadow: 0 3px 3px;
+    min-height: 10vh;
+    max-height: 10vh;
+    width: 100%;
+	display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+footer {
+	display: flex;
+    justify-content: center;
+    align-content: center;
+	flex-direction: column;
+    flex-wrap: wrap;
+    height: 5vh;
+    width: 100%;
+	background: linear-gradient(90deg, blue, lightblue);
+}
+
+body {
+    font-family: 'Bebas Neue', cursive;
+	margin:0px 0;
+	min-height:100vh;
+	display:flex;
+	flex-direction:column;
+}
+
+main {
+	flex-grow:1;
+}
+/* Inscription Page */
+#maindivinscription
+{
+    display: flex;
+    min-height: 80vh;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1vh;
+}
+
+#inputsinscription
+{
+    display: flex;
+    flex-direction: column;
+}
+#inputsinscription div
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#inputsinscription label
+{
+    margin-right: 1vw;
+}
+
+#inputsinscription input
+{
+    margin-bottom: 1vh;
+}
+
+#actionsinscription
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+}
+
+#submitinscription
+{
+    width: 10vw;
+    font-size: 1.2em;
+}
+#actionsinscription input
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#inscriptionform
+{
+    margin-top: auto;
+    margin-bottom: auto;
+}

@@ -1,0 +1,25 @@
+{
+    "name": "greg/twittos",
+    "description": "Un twitter like",
+    "type": "project",
+    "require": {
+        "twig/twig": "^3.0",
+        "ext-pdo": "*"
+    },
+    "authors": [
+        {
+            "name": "greggameplayer",
+            "email": "gregoire.hage@epsi.fr"
+        }
+    ],
+    "autoload": {
+        "files": [ "app/helpers/renderer.helper.php",
+            "app/controllers/main.controller.php",
+            "app/controllers/homepage.controller.php",
+            "app/controllers/inscription.controller.php",
+            "app/models/tweet.model.php",
+            "app/models/inscription.model.php",
+            "app/helpers/database.helper.php"
+        ]
+    }
+}

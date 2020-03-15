@@ -1,0 +1,12 @@
+<h1 class="display-4 mx-auto w-50 p-2">Tweets récents :</h1>
+<ul class="list-unstyled mx-auto rounded border w-50 p-3 mt-3">
+{% for i in 0..(Tweets|length - 1) %}
+    <li>
+        {% include "tweet.twig" %}
+        {% set max = Tweets|length - 1 %}
+        {% if  i < max %}
+            <hr>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>

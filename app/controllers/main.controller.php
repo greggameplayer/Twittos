@@ -21,6 +21,9 @@ function getMainController($page){
             case "tweetsearch":
                 getHomepageController("tweetsearch", $page["searchvalue"]);
                 break;
+            case "tweetcreation.model":
+                \Models\setTweet($page["content"]);
+                break;
         }
     }else {
         getHomepageController();

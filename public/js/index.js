@@ -7,6 +7,7 @@ $("document").ready(function(){
     $("#connexionform").on("submit", onSubmitConnexionForm);
     $("#deconnexionbutton").on("click", onClickDeconnexionButton);
     $("#searchform").on("submit", onSubmitSearchForm);
+    $("#tweetcreationform").on("submit", onSubmitTweetcreationForm);
 });
 
 function onClickInscriptionButton(){
@@ -53,6 +54,7 @@ function onSubmitConnexionForm(event){
         $("#connexionform").on("submit", onSubmitConnexionForm);
         $("#deconnexionbutton").on("click", onClickDeconnexionButton);
         $("#searchform").on("submit", onSubmitSearchForm);
+        $("#tweetcreationform").on("submit", onSubmitTweetcreationForm);
     });
 }
 
@@ -88,7 +90,26 @@ function onSubmitSearchForm(event){
         $("#connexionform").on("submit", onSubmitConnexionForm);
         $("#deconnexionbutton").on("click", onClickDeconnexionButton);
         $("#searchform").on("submit", onSubmitSearchForm);
+        $("#tweetcreationform").on("submit", onSubmitTweetcreationForm);
         $(".dropdown-toggle").off("click");
         $(".dropdown-toggle").on("click", {toggle: toggledropdown}, onDropdownClick);
+    });
+}
+
+function onSubmitTweetcreationForm(event){
+    event.preventDefault();
+    $.post("../../../twittos/index.php", {page: "tweetcreation.model", content: $("#tweetcreationTextarea").val()}, function(results){
+        $("#alert").html(results);
+        $("#alert").css("visibility", "visible");
+        $("#homebutton").on("click", onClickHomeButton);
+        $("#connexionform").on("submit", onSubmitConnexionForm);
+        $("#deconnexionbutton").on("click", onClickDeconnexionButton);
+        $("#searchform").on("submit", onSubmitSearchForm);
+        $("#tweetcreationform").on("submit", onSubmitTweetcreationForm);
+        $(".dropdown-toggle").off("click");
+        $(".dropdown-toggle").on("click", {toggle: toggledropdown}, onDropdownClick);
+        setTimeout(function(){
+            window.location.reload();
+        }, 500);
     });
 }

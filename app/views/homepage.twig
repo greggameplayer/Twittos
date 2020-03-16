@@ -8,6 +8,8 @@
     {% elseif Connexion == 'connected' %}
         <p>Vous êtes connecté</p>
     {% endif %}
+    <div id="alert" style="visibility: hidden;">
+    </div>
     {% include "tweetlist.twig" %}
     {% if Session["email"] is defined and Connexion != "deconnected" %}
         {% include "tweetcreation.twig" %}

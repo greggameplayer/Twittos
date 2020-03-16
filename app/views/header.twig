@@ -11,17 +11,26 @@
             <li class="nav-item active">
                 <a class="nav-link text-white" href="#" id="homebutton">Accueil</a>
             </li>
+            {% if Session["email"] is defined and Connexion != "deconnected" %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="profilebutton">Profil</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#" id="parametersbutton">Paramètres</a>
+                        <a class="dropdown-item" href="#" id="deconnexionbutton">Se déconnecter</a>
+                    </div>
+                </li>
+            {% else %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">S'inscrire/se connecter</a>
                 <div class="dropdown-menu">
-                    <form class="px-4 py-3">
+                    <form class="px-4 py-3" id="connexionform">
                         <div class="form-group">
-                            <label for="exampleDropdownFormEmail1">Email :</label>
-                            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                            <label for="emailconnexion">Email :</label>
+                            <input type="email" class="form-control" id="emailconnexion" placeholder="email@example.com">
                         </div>
                         <div class="form-group">
-                            <label for="exampleDropdownFormPassword1">Mot de passe :</label>
-                            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Mot de passe">
+                            <label for="passwordconnexion">Mot de passe :</label>
+                            <input type="password" class="form-control" id="passwordconnexion" placeholder="Mot de passe">
                         </div>
                         <div class="form-group">
                             <div class="form-check">
@@ -31,16 +40,17 @@
                                 </label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Se connecter</button>
+                        <button type="submit" class="btn btn-primary" id="submitconnexion">Se connecter</button>
                     </form>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" id="inscriptionbutton">S'inscrire</a>
                     <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
                 </div>
             </li>
+            {% endif %}
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="rechercher" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" id="searchform">
+            <input class="form-control mr-sm-2" type="search" placeholder="rechercher" aria-label="Search" id="searchbar">
             <button class="btn btn-outline-success my-2 my-sm-0 text-white" type="submit">Rechercher</button>
         </form>
     </div>

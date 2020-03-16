@@ -1,6 +1,6 @@
 <?php
 define("HOST","127.0.0.1:3308");
-define("DB_NAME","micromania-like");
+define("DB_NAME","twittos");
 define("USER", "root");
 define("PASSWORD","");
 

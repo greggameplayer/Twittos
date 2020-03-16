@@ -2,4 +2,14 @@
 {% block title %}Twittos | Accueil{% endblock %}
 {% block javascriptsBody %}
 {% endblock %}
-{% block main %}{% include "tweetlist.twig" %}{% endblock %}
+{% block main %}
+    {% if Connexion == 'error' %}
+        <p>Erreur, l'utilisateur n'existe pas ou le mot de passe est erroné</p>
+    {% elseif Connexion == 'connected' %}
+        <p>Vous êtes connecté</p>
+    {% endif %}
+    {% include "tweetlist.twig" %}
+    {% if Session["email"] is defined and Connexion != "deconnected" %}
+        {% include "tweetcreation.twig" %}
+    {% endif %}
+{% endblock %}

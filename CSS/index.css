@@ -47,6 +47,26 @@ main {
     margin-top: 1vh;
 }
 
+#maindivtweetcreation
+{
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1vh;
+}
+
+#maindivtweetcreation form
+{
+    height: 17vh;
+}
+
+#tweetcreationTextarea
+{
+    width: 49.5vw;
+}
+
 #inputsinscription
 {
     display: flex;

@@ -2,8 +2,9 @@
     <form id="tweetcreationform">
         <div class="form-group">
             <label for="tweetcreationTextarea">Votre tweet : </label>
-            <textarea class="form-control" id="tweetcreationTextarea" rows="5"></textarea>
+            <textarea class="form-control" id="tweetcreationTextarea" rows="5" maxlength="255"></textarea>
+            <p id="characterlength">0/255</p>
         </div>
-        <button type="submit" class="btn btn-primary" id="submitconnexion">Poster</button>
+        <button type="submit" class="btn btn-primary" id="submittweet">Poster</button>
     </form>
 </div>

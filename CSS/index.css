@@ -47,6 +47,39 @@ main {
     margin-top: 1vh;
 }
 
+#maindivparameters
+{
+    display: flex;
+    min-height: 80vh;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1vh;
+}
+
+#maindivparameters form fieldset
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+#oldPassword
+{
+    margin-bottom: 1vh;
+}
+
+#newPassword
+{
+    margin-bottom: 2vh;
+}
+
+#submitpassword, #oldPassword, #newPassword, #maindivparameters form fieldset label
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #maindivtweetcreation
 {
     display: flex;
@@ -59,7 +92,8 @@ main {
 
 #maindivtweetcreation form
 {
-    height: 17vh;
+    height: 19vh;
+    margin-bottom: 5vh;
 }
 
 #tweetcreationTextarea

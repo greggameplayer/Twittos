@@ -1,0 +1,22 @@
+{% extends "layout.twig" %}
+{% block title %}Twittos | Inscription{% endblock %}
+{% block javascriptsBody %}
+{% endblock %}
+{% block main %}
+    <div id="alert" style="visibility: hidden;">
+    </div>
+    <div id="maindivparameters">
+        <h1>Changer de mot de passe</h1>
+        <form>
+            <fieldset id="inputspassword">
+                <label for="oldPassword">Votre ancien mot de passe : </label>
+                <input type="password" id="oldPassword" name="oldPassword" required>
+                <label for="newPassword">Votre nouveau mot de passe : </label>
+                <input type="password" id="newPassword" name="oldPassword" required>
+            </fieldset>
+            <fieldset id="submitfieldpassword">
+                <input type="submit" id="submitpassword" value="Valider">
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

@@ -15,15 +15,14 @@
     {% endblock %}
 </head>
 <body>
-<main>
-    {% include "header.twig" %}
-    {% block javascriptsBody %}
-    {% endblock %}
-    <div id="maindiv">
-        {% block main %}
+    <main>
+        {% include "header.twig" %}
+        {% block javascriptsBody %}
         {% endblock %}
-    </div>
-</main>
-    {% include "footer.twig" %}
+        <div id="maindiv">
+            {% block main %}
+            {% endblock %}
+        </div>
+    </main>
 </body>
 </html>

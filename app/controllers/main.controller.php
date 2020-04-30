@@ -24,6 +24,12 @@ function getMainController($page){
             case "tweetcreation.model":
                 \Models\setTweet($page["content"]);
                 break;
+            case "parameters":
+                getParametersController();
+                break;
+            case "parameters.model":
+                \Models\changePassword($page["oldPassword"], $page["newPassword"]);
+                break;
         }
     }else {
         getHomepageController();

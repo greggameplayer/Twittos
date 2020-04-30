@@ -32,26 +32,19 @@
                             <label for="passwordconnexion">Mot de passe :</label>
                             <input type="password" class="form-control" id="passwordconnexion" placeholder="Mot de passe">
                         </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                <label class="form-check-label" for="dropdownCheck">
-                                    Se rappeller
-                                </label>
-                            </div>
-                        </div>
                         <button type="submit" class="btn btn-primary" id="submitconnexion">Se connecter</button>
                     </form>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" id="inscriptionbutton">S'inscrire</a>
-                    <a class="dropdown-item" href="#">Mot de passe oublié ?</a>
                 </div>
             </li>
             {% endif %}
         </ul>
+        {% if SearchBar is not defined %}
         <form class="form-inline my-2 my-lg-0" id="searchform">
             <input class="form-control mr-sm-2" type="search" placeholder="rechercher" aria-label="Search" id="searchbar">
             <button class="btn btn-outline-success my-2 my-sm-0 text-white" type="submit">Rechercher</button>
         </form>
+        {% endif %}
     </div>
 </nav>

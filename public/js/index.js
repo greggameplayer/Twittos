@@ -7,7 +7,9 @@ $("document").ready(function(){
     $("#connexionform").on("submit", onSubmitConnexionForm);
     $("#deconnexionbutton").on("click", onClickDeconnexionButton);
     $("#searchform").on("submit", onSubmitSearchForm);
+    $("#parametersbutton").on("click", onClickParametersButton);
     $("#tweetcreationform").on("submit", onSubmitTweetcreationForm);
+    $("#tweetcreationTextarea").on("input", onChangeTextArea);
 });
 
 function onClickInscriptionButton(){
@@ -39,7 +41,6 @@ function onSubmitInscriptionForm(event){
         $("#homebutton").on("click", onClickHomeButton);
         $("#connexionform").on("submit", onSubmitConnexionForm);
         $("#deconnexionbutton").on("click", onClickDeconnexionButton);
-        $("#searchform").on("submit", onSubmitSearchForm);
     });
 }
 
@@ -55,6 +56,8 @@ function onSubmitConnexionForm(event){
         $("#deconnexionbutton").on("click", onClickDeconnexionButton);
         $("#searchform").on("submit", onSubmitSearchForm);
         $("#tweetcreationform").on("submit", onSubmitTweetcreationForm);
+        $("#parametersbutton").on("click", onClickParametersButton);
+        $("#tweetcreationTextarea").on("input", onChangeTextArea);
     });
 }
 
@@ -65,6 +68,7 @@ function onClickDeconnexionButton(event){
         $(".dropdown-toggle").on("click", {toggle: toggledropdown}, onDropdownClick);
         $("#homebutton").on("click", onClickHomeButton);
         $("#connexionform").on("submit", onSubmitConnexionForm);
+        $("#inscriptionbutton").on("click", onClickInscriptionButton);
         $("#deconnexionbutton").on("click", onClickDeconnexionButton);
         $("#searchform").on("submit", onSubmitSearchForm);
     });
@@ -91,6 +95,8 @@ function onSubmitSearchForm(event){
         $("#deconnexionbutton").on("click", onClickDeconnexionButton);
         $("#searchform").on("submit", onSubmitSearchForm);
         $("#tweetcreationform").on("submit", onSubmitTweetcreationForm);
+        $("#parametersbutton").on("click", onClickParametersButton);
+        $("#tweetcreationTextarea").on("input", onChangeTextArea);
         $(".dropdown-toggle").off("click");
         $(".dropdown-toggle").on("click", {toggle: toggledropdown}, onDropdownClick);
     });
@@ -106,10 +112,49 @@ function onSubmitTweetcreationForm(event){
         $("#deconnexionbutton").on("click", onClickDeconnexionButton);
         $("#searchform").on("submit", onSubmitSearchForm);
         $("#tweetcreationform").on("submit", onSubmitTweetcreationForm);
+        $("#parametersbutton").on("click", onClickParametersButton);
+        $("#tweetcreationTextarea").on("input", onChangeTextArea);
         $(".dropdown-toggle").off("click");
         $(".dropdown-toggle").on("click", {toggle: toggledropdown}, onDropdownClick);
         setTimeout(function(){
             window.location.reload();
         }, 500);
     });
+}
+
+function onClickParametersButton(event){
+    $.post("../../../twittos/index.php", {page: "parameters"}, function(results){
+        $("body").html(results);
+        $("#homebutton").on("click", onClickHomeButton);
+        $("#connexionform").on("submit", onSubmitConnexionForm);
+        $("#deconnexionbutton").on("click", onClickDeconnexionButton);
+        $("#parametersbutton").on("click", onClickParametersButton);
+        $("#maindivparameters form").on("submit", onSubmitPasswordChangeForm);
+    });
+}
+
+function onSubmitPasswordChangeForm(event){
+    event.preventDefault();
+    $.post("../../../twittos/index.php", {page: "parameters.model", oldPassword: $("#oldPassword").val(),
+    newPassword: $("#newPassword").val()}, function(results){
+        $("#alert").html(results);
+        $("#alert").css("visibility", "visible");
+        $("#homebutton").on("click", onClickHomeButton);
+        $("#connexionform").on("submit", onSubmitConnexionForm);
+        $("#deconnexionbutton").on("click", onClickDeconnexionButton);
+        $("#parametersbutton").on("click", onClickParametersButton);
+        $("#maindivparameters form").on("submit", onSubmitPasswordChangeForm);
+        setTimeout(function(){
+            window.location.reload();
+        }, 500);
+    });
+}
+
+function onChangeTextArea(event){
+    $("#characterlength").html($("#tweetcreationTextarea").val().length + "/255");
+    if($("#tweetcreationTextarea").val().length > 240){
+        $("#characterlength").css("color", "red");
+    }else{
+        $("#characterlength").css("color", "black");
+    }
 }
